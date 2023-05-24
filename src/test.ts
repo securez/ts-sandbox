@@ -18,7 +18,8 @@ AppDataSource.initialize()
     const g11 = new Group();
     g11.name = "g11";
     // g11.parent = g1;
-    g11.parentId = g1.id;
+    // BUG: TreeParent g11 will not store parent on closure table only on g11 entity
+    g11.parentId = g1.id; 
     await em.save(g11);
 
     const g12 = new Group();

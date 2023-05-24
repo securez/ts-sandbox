@@ -3,11 +3,10 @@ import {
   Entity,
   Index,
   JoinColumn,
-  ManyToOne,
   PrimaryGeneratedColumn,
   Tree,
   TreeChildren,
-  TreeParent,
+  TreeParent
 } from "typeorm";
 
 @Entity("groups")
@@ -30,12 +29,12 @@ export class Group {
   children!: Group[];
 
   // BUG: This column can't be defined for TreeParent
-  @Column({ name: "group_parent_id", nullable: true })
+  @Column({ name: "parent_id", nullable: true })
   @Index("groups_parent_idx")
   parentId!: number;
   
   @JoinColumn({
-    name: "group_parent_id",
+    name: "parent_id",
     referencedColumnName: "id",
     foreignKeyConstraintName: "groups_parent_fk",
   })

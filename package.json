@@ -2,10 +2,11 @@
   "name": "sandbox",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "typeorm": "typeorm-ts-node-commonjs -d src/orm/data-source.ts"
+    "typeorm": "typeorm-ts-node-commonjs -d src/orm/data-source.ts",
+    "build": "rm -rf dist && tsc"
   },
   "keywords": [],
   "author": "",
