@@ -1,0 +1,7 @@
+# IDE
+.vscode
+.idea
+
+# Generated
+node_modules
+dist
