@@ -6,6 +6,7 @@ import {
   PrimaryGeneratedColumn,
   Tree,
   TreeChildren,
+  TreeLevelColumn,
   TreeParent
 } from "typeorm";
 
@@ -29,9 +30,8 @@ export class Group {
   children!: Group[];
 
   // BUG: This column can't be defined for TreeParent
-  @Column({ name: "parent_id", nullable: true })
-  @Index("groups_parent_idx")
-  parentId!: number;
+  // @Column({ name: "parent_id", nullable: true })
+  // parentId!: number;
   
   @JoinColumn({
     name: "parent_id",
@@ -39,5 +39,9 @@ export class Group {
     foreignKeyConstraintName: "groups_parent_fk",
   })
   @TreeParent()
+  @Index("groups_parent_idx")
   parent!: Group;
+
+  @TreeLevelColumn()
+  level!: number;
 }

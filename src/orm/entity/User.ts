@@ -1,8 +1,8 @@
-import { Entity, PrimaryGeneratedColumn, Column, Index } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, Column, Index, ManyToOne, JoinColumn } from "typeorm"
+import { Group } from "./Group"
 
 @Entity("users")
 export class User {
-
     @PrimaryGeneratedColumn({name: "user_id", primaryKeyConstraintName: "users_user_pk"})
     id!: number
 
@@ -15,5 +15,4 @@ export class User {
 
     @Column({name: "age"})
     age!: number
-
 }
